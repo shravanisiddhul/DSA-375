@@ -1,4 +1,5 @@
 public class problem1 {
+    // Sum of min and max in array
     public static int minimum(int A[],int N)
     {
         int min = Integer.MAX_VALUE;
