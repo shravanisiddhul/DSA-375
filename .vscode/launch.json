@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "problem7",
+            "request": "launch",
+            "mainClass": "problem7",
+            "projectName": "DSA 375_4b9f53c7"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
