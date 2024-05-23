@@ -1,7 +1,7 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
 
-public class problem7 {
+import java.util.*;
+
+public class practice {
 
     // Next Permutation
     public static int[] nextGreaterPermutation(int[] A) {
@@ -60,7 +60,6 @@ public class problem7 {
 
     public static void main(String args[]) {
         int A[] = {1, 1, 5};
-        System.out.println("Next Permutation of "+Arrays.toString(A)+" is : ");
         nextGreaterPermutation(A);
     }
 
