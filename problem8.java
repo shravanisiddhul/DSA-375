@@ -6,7 +6,7 @@ public class problem8 {
 
         for(int i=0;i<prices.length;i++)
         {
-            if(prices[i] < buyprice)
+            if(buyprice > prices[i])
             {
                 buyprice = prices[i];
             }else{
