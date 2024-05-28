@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "problem10",
+            "request": "launch",
+            "mainClass": "problem10",
+            "projectName": "DSA 375_4b9f53c7"
+        },
+        {
+            "type": "java",
             "name": "problem8",
             "request": "launch",
             "mainClass": "problem8",
