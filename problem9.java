@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
+// Repeat and missing number array
 public class problem9 {
-    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    
     public ArrayList<Integer> repeatedNumber(final List<Integer> A) {
         long n = A.size();
         

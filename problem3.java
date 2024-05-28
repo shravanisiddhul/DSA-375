@@ -1,6 +1,7 @@
 public class problem3 {
     public static int maxSubArray(int nums[])
     {
+        // Maximum Sum of a Sub Array
         int maxSum = Integer.MIN_VALUE;
         int currSum = 0;
         for(int i=0;i<nums.length;i++)

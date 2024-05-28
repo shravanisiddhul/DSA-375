@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class problem2 {
-    // reverse array
+    // reverse the array
     public static void main(String args [])
     {
         @SuppressWarnings("resource")

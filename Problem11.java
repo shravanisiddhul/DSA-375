@@ -1,5 +1,7 @@
 class problem11
 {
+    // Trapping rainwater
+
     public static int trap(int[] height) {
         int n = height.length;
         int left = 0;
