@@ -3,6 +3,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class problem16 {
+
+    // 3 Sum Problem
+
     public static List<List<Integer>> threeSum(int [] nums)
     {
         List<List<Integer>> ans = new ArrayList<>();

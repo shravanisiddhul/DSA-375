@@ -1,6 +1,8 @@
 import java.util.Arrays;
 
 public class problem15 {
+
+    // Find Pair with Sum in Sorted & Rotated Array
     public static int countPair(int a[],int sum,int n)
     {
         int i = 0;

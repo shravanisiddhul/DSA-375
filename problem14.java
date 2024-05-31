@@ -1,4 +1,6 @@
 public class problem14 {
+
+    // 	Find Minimum in Rotated Sorted Array
     public static int findMin(int[] nums)
     {
         int left = 0;
