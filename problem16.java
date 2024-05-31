@@ -74,7 +74,7 @@ public class problem16 {
 
         List<List<Integer>> ans = threeSum(nums);
 
-        System.out.println();
+        System.out.println(ans);
 
     }
 
