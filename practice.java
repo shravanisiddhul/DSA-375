@@ -4,61 +4,41 @@ import java.util.List;
 
 public class practice
 {
-    public static List<List<Integer>>threeSum(int [] nums)
+    public static int[][] overlappedInterval(int [][] Intervals)
     {
-        List<List<Integer>> ans = new ArrayList<>();
-        int n = nums.length;
-        Arrays.sort(nums);
-
-        for(int i=0;i<n;i++)
+        if(Intervals == null || Intervals.length == 0)
         {
-            if(i != 0 && nums[i] == nums[i-1])
-            {
-                continue;
-            }
-            if(nums[i] > 0)
-            {
-                break;
-            }
-
-            int j = i+1;
-            int k = n-1;
-
-            while(j<k)
-            {
-                int sum = nums[i]+nums[j]+nums[k];
-                if(sum > 0)
-                {
-                    k--;
-                }else if(sum< 0)
-                {
-                    j++;
-                }else{
-                    List<Integer> temp =  Arrays.asList(nums[i],nums[j],nums[k]);
-                    ans.add(temp);
-
-                    j++;
-                    k--;
-
-                    while(j<k && nums[j] == nums[j-1])
-                    {
-                        j++;
-                    }
-                    while(j<k && nums[k] == nums[k+1])
-                    {
-                        k--;
-                    }
-                }
-            }
-            
+            return new int [0][0];
         }
-        return ans;
+
+        Arrays.sort(Intervals,(a,b) -> Integer.compare(a[0],b[0]));
+
+        List<int []> mergedIntervals = new ArrayList<>();
+        int [] currInterval = Intervals[0];
+        mergedIntervals.add(currInterval);
+
+        for(int[] interval : Intervals)
+        {
+            int currEnd = currInterval[1];
+            int nextStart = interval[0];
+            int nextEnd = interval[1];
+
+            if(currEnd >= nextStart)
+            {
+                currInterval[1] = Math.max(currEnd, nextEnd);
+            }else{
+                currInterval = interval;
+                mergedIntervals.add(currInterval);
+            }
+        }
+        return mergedIntervals.toArray(new int [mergedIntervals.size()][]);
     }
+
     public static void main(String args [])
     {
-        int nums[] = {-1,0,1,2,-1,-4};
+        int[][] Intervals = {{1,3},{2,4},{6,8},{9,10}};
 
-        List<List<Integer>> result = threeSum(nums);
-        System.out.println(result);
+        int [][] result = overlappedInterval(Intervals);
+        System.out.println(Arrays.deepToString(result));
     }
 }
