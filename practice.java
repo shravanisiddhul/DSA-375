@@ -1,30 +1,34 @@
+import java.util.Arrays;
+
 public class practice
 {
-    public static int findMinOps(int [] arr,int n)
+    public static String printLargest(int [] nums)
     {
-        int ans = 0;
-        for(int i=0,j=n-1;i<=j;)
+        String[] arr = new String[nums.length];
+        for(int i=0;i<nums.length;i++)
         {
-            if(arr[i] == arr[j])
-            {
-                i++;
-                j--;
-            }else if(arr[i] > arr[j])
-            {
-                j++;
-                arr[j] += arr[j+1];
-                ans++;
-            }else{
-                i++;
-                arr[i] += arr[i-1];
-                ans++;
-            }
+            arr[i] = String.valueOf(nums[i]);
         }
-        return ans;
+
+        Arrays.sort(arr, (a,b) -> (b+a).compareTo(a+b));
+
+        if(arr[0].equals("0"))
+        {
+            return "0";
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for(String n : arr)
+        {
+            sb.append(n);
+        }
+        return sb.toString();
     }
-    public static void main(String args [])
+
+    public static void main(String args[])
     {
-        int arr[] = {11, 14, 15, 99};
-        System.out.println(findMinOps(arr, arr.length));
+        int nums[] = {3,30,34,5,9};
+        System.out.println(printLargest(nums));
     }
 }
