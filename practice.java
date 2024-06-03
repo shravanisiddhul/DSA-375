@@ -1,44 +1,30 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class practice
 {
-    public static int[][] overlappedInterval(int [][] Intervals)
+    public static int findMinOps(int [] arr,int n)
     {
-        if(Intervals == null || Intervals.length == 0)
+        int ans = 0;
+        for(int i=0,j=n-1;i<=j;)
         {
-            return new int [0][0];
-        }
-
-        Arrays.sort(Intervals,(a,b) -> Integer.compare(a[0],b[0]));
-
-        List<int []> mergedIntervals = new ArrayList<>();
-        int [] currInterval = Intervals[0];
-        mergedIntervals.add(currInterval);
-
-        for(int[] interval : Intervals)
-        {
-            int currEnd = currInterval[1];
-            int nextStart = interval[0];
-            int nextEnd = interval[1];
-
-            if(currEnd >= nextStart)
+            if(arr[i] == arr[j])
             {
-                currInterval[1] = Math.max(currEnd, nextEnd);
+                i++;
+                j--;
+            }else if(arr[i] > arr[j])
+            {
+                j++;
+                arr[j] += arr[j+1];
+                ans++;
             }else{
-                currInterval = interval;
-                mergedIntervals.add(currInterval);
+                i++;
+                arr[i] += arr[i-1];
+                ans++;
             }
         }
-        return mergedIntervals.toArray(new int [mergedIntervals.size()][]);
+        return ans;
     }
-
     public static void main(String args [])
     {
-        int[][] Intervals = {{1,3},{2,4},{6,8},{9,10}};
-
-        int [][] result = overlappedInterval(Intervals);
-        System.out.println(Arrays.deepToString(result));
+        int arr[] = {11, 14, 15, 99};
+        System.out.println(findMinOps(arr, arr.length));
     }
 }
