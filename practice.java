@@ -1,34 +1,32 @@
-import java.util.Arrays;
+public class practice {
+    // minimum merged operations to make array palindrome
 
-public class practice
-{
-    public static String printLargest(int [] nums)
+    public static int findMinOps(int [] arr,int n)
     {
-        String[] arr = new String[nums.length];
-        for(int i=0;i<nums.length;i++)
+        int ans = 0;
+        for(int i=0, j=n-1;i <= j;)
         {
-            arr[i] = String.valueOf(nums[i]);
+            if(arr[i] == arr[j])
+            {
+                i++;
+                j--;
+            }else if(arr[i] > arr[j])
+            {
+                j--;
+                arr[j] += arr[j+1];
+                ans++;
+            }else{
+                i++;
+                arr[i] += arr[i-1];
+                ans++;
+            }
         }
-
-        Arrays.sort(arr, (a,b) -> (b+a).compareTo(a+b));
-
-        if(arr[0].equals("0"))
-        {
-            return "0";
-        }
-
-        StringBuilder sb = new StringBuilder();
-
-        for(String n : arr)
-        {
-            sb.append(n);
-        }
-        return sb.toString();
+        return ans;
     }
 
-    public static void main(String args[])
+    public static void main(String args [])
     {
-        int nums[] = {3,30,34,5,9};
-        System.out.println(printLargest(nums));
+        int arr[] = {1, 4, 5, 9, 1};
+        System.out.println("Minimum count of operations done are :"+findMinOps(arr, arr.length));
     }
 }
