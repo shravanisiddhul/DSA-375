@@ -1,32 +1,17 @@
+import java.util.Arrays;
 public class practice {
-    // minimum merged operations to make array palindrome
 
-    public static int findMinOps(int [] arr,int n)
+    // Kth largest elements in an array
+
+    public static int findKthLargest(int nums[],int k)
     {
-        int ans = 0;
-        for(int i=0, j=n-1;i <= j;)
-        {
-            if(arr[i] == arr[j])
-            {
-                i++;
-                j--;
-            }else if(arr[i] > arr[j])
-            {
-                j--;
-                arr[j] += arr[j+1];
-                ans++;
-            }else{
-                i++;
-                arr[i] += arr[i-1];
-                ans++;
-            }
-        }
-        return ans;
+        Arrays.sort(nums);
+        return nums[nums.length - k];
     }
-
     public static void main(String args [])
     {
-        int arr[] = {1, 4, 5, 9, 1};
-        System.out.println("Minimum count of operations done are :"+findMinOps(arr, arr.length));
+        int nums[] = {3,2,1,5,6,4};
+        int k = 2;
+        System.out.println(findKthLargest(nums, k));
     }
 }
