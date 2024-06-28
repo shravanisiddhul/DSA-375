@@ -1,17 +1,23 @@
-import java.util.Arrays;
-public class practice {
-
-    // Kth largest elements in an array
-
-    public static int findKthLargest(int nums[],int k)
+import java.util.*;
+class practice
+{
+    public static void main(String args[])
     {
-        Arrays.sort(nums);
-        return nums[nums.length - k];
-    }
-    public static void main(String args [])
-    {
-        int nums[] = {3,2,1,5,6,4};
-        int k = 2;
-        System.out.println(findKthLargest(nums, k));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter size : ");
+        int size = sc.nextInt();
+        System.out.println("Enter an Array : ");
+        int A[] = new int[size];
+
+        for(int i=0;i<A.length;i++)
+        {
+            A[i] = sc.nextInt();
+        }
+
+        System.out.println(" Reverse Array is : ");
+        for(int i = A.length-1;i>=0;i--)
+        {
+            System.out.print(A[i]+" ");
+        }
     }
 }
